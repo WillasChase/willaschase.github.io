@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>3.Vue模版指令语法</title>
+    <link href="/2021/10/19/3.Vue%E6%A8%A1%E7%89%88/"/>
+    <url>/2021/10/19/3.Vue%E6%A8%A1%E7%89%88/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Vue模版指令语法"><a href="#Vue模版指令语法" class="headerlink" title="Vue模版指令语法"></a>Vue模版指令语法</h1><h2 id="插值语法"><a href="#插值语法" class="headerlink" title="插值语法"></a>插值语法</h2><p>在第二篇文章中，创建了如下模版：</p><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span></span><br><span class="xml">     <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello </span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">name1</span>&#125;&#125;</span><span class="xml">!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="xml">     Hello </span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">name2</span>&#125;&#125;</span><span class="xml">!</span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></code></pre></td></tr></table></figure><p>这种语法叫做插值语法，还有一种写法叫做指令语法：</p><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="xml">    <span class="hljs-comment">&lt;!-- 准备一个容器 --&gt;</span></span><br><span class="xml">    <span class="hljs-comment">&lt;!-- root容器中代码叫Vue模版 --&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello </span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">name1</span>&#125;&#125;</span><span class="xml">!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">&#x27;url&#x27;</span>&gt;</span>微软官网<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="xml"></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="javascript"><span class="xml">      <span class="hljs-comment">//创建Vue实例，把参数传给配置对象，一个Vue实例对应一个容器</span></span></span><br><span class="javascript"><span class="xml">      <span class="hljs-keyword">new</span> Vue(&#123;</span></span><br><span class="javascript"><span class="xml">        <span class="hljs-attr">el</span>:<span class="hljs-string">&#x27;#root&#x27;</span>,  <span class="hljs-comment">//指定当前Vue容器,值通常为CSS选择器字符串</span></span></span><br><span class="javascript"><span class="xml">        <span class="hljs-attr">data</span>:&#123;  <span class="hljs-comment">//data中用于存储数据，数据供el指定的容器使用</span></span></span><br><span class="javascript"><span class="xml">          <span class="hljs-attr">name1</span>:<span class="hljs-string">&#x27;World&#x27;</span>,</span></span><br><span class="javascript"><span class="xml">          <span class="hljs-attr">url</span>:<span class="hljs-string">&#x27;https://www.microsoft.com&#x27;</span></span></span><br><span class="javascript"><span class="xml">        &#125;</span></span><br><span class="javascript"><span class="xml">      &#125;);</span></span><br><span class="javascript"><span class="xml">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br></code></pre></td></tr></table></figure><p>相比于插值语法，指令语法多了v-bind:，指令带有前缀 v-，以表示它们是 Vue 提供的特殊 attribute，它们会在渲染的 DOM 上应用特殊的响应式行为。在这个例子中，本来href后面引号中虽然是字符串，但是加上v-bind中，url被当作js表达式执行，url被绑定（bind）到Vue实例中data的url，并把执行结果给href。<br><br><br>可以尝试一下一下代码：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;div id=<span class="hljs-string">&quot;app-2&quot;</span>&gt;<br>  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">&quot;message&quot;</span>&gt;</span></span><br><span class="xml">    鼠标悬停几秒钟查看此处动态绑定的提示信息！</span><br><span class="xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br>&lt;/div&gt;<br><span class="hljs-keyword">var</span> app2 = <span class="hljs-keyword">new</span> Vue(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app-2&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;页面加载于 &#x27;</span> + <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toLocaleString()<br>  &#125;<br>&#125;);<br></code></pre></td></tr></table></figure><p>v-bind可以给任何一个属性标签动态的去绑定。<br><strong>v-bind可以简写为’:’</strong><br>上文span中的代码可以简写为：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">:title</span>=<span class="hljs-string">&quot;message&quot;</span>&gt;</span><br>    鼠标悬停几秒钟查看此处动态绑定的提示信息！<br><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br></code></pre></td></tr></table></figure><h2 id="插值语法和指令语法用途"><a href="#插值语法和指令语法用途" class="headerlink" title="插值语法和指令语法用途"></a>插值语法和指令语法用途</h2><p>插值语法往往用于解析<strong>标签体内容</strong>，即起始标签和结束标签中的内容。写法，XXX是js表达式，并且可以直接读取Vue实例中data的属性。<br><br>指令语法用于解析<strong>标签</strong>（包括：标签属性、标签体内容、绑定事件）。Vue中有很多的指令，形式都是v-XXX，如v-if等，不同情况需要使用不同标签。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+      <category>Vue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>前端</tag>
+      
+      <tag>Vue</tag>
+      
+      <tag>学习</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>2.Vue初步入门</title>
+    <link href="/2021/10/18/2.Vue%E5%88%9D%E6%AD%A5%E5%85%A5%E9%97%A8/"/>
+    <url>/2021/10/18/2.Vue%E5%88%9D%E6%AD%A5%E5%85%A5%E9%97%A8/</url>
+    
+    <content type="html"><![CDATA[<h1 id="2-Vue初步入门"><a href="#2-Vue初步入门" class="headerlink" title="2.Vue初步入门"></a>2.Vue初步入门</h1><p>首先我们用 VS Code 输如 ! 在上文新建的 HTML 文件中生成一个模版，然后新建一个模版。制作好模版后，引入刚才放在文件夹的 Vue 文件，注意，Vue 和 Vue.min 都是 Vue 框架，只不过 Vue.min 删除了如错误提示等代码，更为简洁更适合生产环境而非开发环境。<br><br>首先需要引入Vue框架：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;../VueJS/vue.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure><p>👆 以上的代码代表加入 Vue。<br><br>在使用 Vue 前，首先我们要创建一个容器，然后在容器中添加 Vue 模版：</p><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span></span><br><span class="xml">     <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello </span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">name1</span>&#125;&#125;</span><span class="xml">!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="xml">     Hello </span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">name2</span>&#125;&#125;</span><span class="xml">!</span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></code></pre></td></tr></table></figure><p>创建模版后在body中创建 Vue 实例，传入root配置对象，一个 Vue 实例对应一个容器：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript"><span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="javascript">    <span class="hljs-attr">el</span>:<span class="hljs-string">&#x27;#root&#x27;</span>,  <span class="hljs-comment">//指定当前Vue容器,值通常为CSS选择器字符串，这里使用了id选择器的写法，也可以用class选择器</span></span><br><span class="javascript">    <span class="hljs-attr">data</span>:&#123;  <span class="hljs-comment">//data中用于存储数据，数据供el指定的容器使用</span></span><br><span class="javascript">    <span class="hljs-attr">name1</span>:<span class="hljs-string">&#x27;World&#x27;</span>,</span><br><span class="javascript">    <span class="hljs-attr">name2</span>:<span class="hljs-string">&#x27;Vue&#x27;</span>&#125;</span><br><span class="javascript">  &#125;);</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure><p>注意，Vue容器中写的“”中“XXX”需要写成js表达式，且XXX可以自动读取到data中所有属性，如果data中数据改变，模版中用到此数据的地方也会发生改变。<br><br>一个Vue实例只能对应一个容器，在真实的开发中，只有一个Vue实例，并且会配合组件一起使用。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+      <category>Vue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>前端</tag>
+      
+      <tag>Vue</tag>
+      
+      <tag>学习</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>1.Vue初步安装使用</title>
+    <link href="/2021/10/18/Vue%E5%88%9D%E6%AD%A5%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/"/>
+    <url>/2021/10/18/Vue%E5%88%9D%E6%AD%A5%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-Vue初步安装使用"><a href="#1-Vue初步安装使用" class="headerlink" title="1.Vue初步安装使用"></a>1.Vue初步安装使用</h1><p>首先使用homebrew输入：</p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">brew install <span class="hljs-keyword">node</span><span class="hljs-title"></span><br></code></pre></td></tr></table></figure><p>然后使用brew安装npm：</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">brew </span><span class="hljs-keyword">install </span>npm<br></code></pre></td></tr></table></figure><p>然后到<a href="https://cn.vuejs.org/index.html">Vue官网</a>下载vue.js和vue.min.js。在与HTML文件夹平行的文件夹创建名为Vue的文件夹，并将这两个文件放入其中：</p><img src="/2021/10/18/Vue%E5%88%9D%E6%AD%A5%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/IMG_1.png" class=""><p>然后在创建好的项目等HTML文件Head部分加入如下代码：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;../VueJS/vue.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure><p>在浏览器的Console中，可以看到如下部分：</p><img src="/2021/10/18/Vue%E5%88%9D%E6%AD%A5%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/IMG_2735.jpg" class=""><p>如果看到了这部分，至此，Vue环境搭建成功。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+      <category>Vue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>前端</tag>
+      
+      <tag>Vue</tag>
+      
+      <tag>学习</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hexo Bolg避坑指南</title>
+    <link href="/2021/10/15/Hexo%E5%8D%9A%E5%AE%A2%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97/"/>
+    <url>/2021/10/15/Hexo%E5%8D%9A%E5%AE%A2%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Hexo-Bolg避坑指南"><a href="#Hexo-Bolg避坑指南" class="headerlink" title="Hexo Bolg避坑指南"></a>Hexo Bolg避坑指南</h1><p>这一次搭建Hexo服务器，把能踩的坑全都踩了，故写一篇避坑指南。</p><h2 id="1-在SSH模式运行Hexo-d指令之后Permission-Denied"><a href="#1-在SSH模式运行Hexo-d指令之后Permission-Denied" class="headerlink" title="1.在SSH模式运行Hexo d指令之后Permission Denied"></a>1.在SSH模式运行Hexo d指令之后Permission Denied</h2><h3 id="1-1生成SSH-keys"><a href="#1-1生成SSH-keys" class="headerlink" title="1.1生成SSH keys"></a>1.1生成SSH keys</h3><p>出现此情况是因为没有设置GitHub的密钥，首先，在terminal中输入以下代码：</p><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">ssh-keygen -<span class="hljs-built_in">t</span> rsa -C <span class="hljs-string">&quot;your-email&quot;</span><br></code></pre></td></tr></table></figure><p>把上面指令的your email替换成你自己的email地址，然后系统会提示你创建密码，这个密码是提交项目时使用的，如果你不想每次提交时都输入密码则可以按两次回车不设置密码。</p><h3 id="1-2将获得的密钥添加到GitHub中"><a href="#1-2将获得的密钥添加到GitHub中" class="headerlink" title="1.2将获得的密钥添加到GitHub中"></a>1.2将获得的密钥添加到GitHub中</h3><p>然后，在finder中按shift+command+G，把id_rsa.pub中的内容全都复制到GitHub的settings选项SSH keys中new SSH key中。<br></p><h3 id="1-3测试"><a href="#1-3测试" class="headerlink" title="1.3测试"></a>1.3测试</h3><p>输入以下指令：</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">ssh -T <span class="hljs-symbol">git@</span>github.com<br></code></pre></td></tr></table></figure><p>得到以下反馈：</p><blockquote><p>The authenticity of host ‘github.com (XXX.XX.XXX)’ can’t be established.<br><br>RSA key fingerprint is XXXXXX.<br>Are you sure you want to continue connecting (yes/no)?</p></blockquote><p>输入yes，就可以看到：</p><blockquote><p>Hi your-username! You’ve successfully authenticated, but GitHub does not provide shell access.</p></blockquote><h2 id="2-配置Git信息"><a href="#2-配置Git信息" class="headerlink" title="2.配置Git信息"></a>2.配置Git信息</h2><p>在终端中依次输入这两条指令：</p><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lua">git <span class="hljs-built_in">config</span> <span class="hljs-comment">--global user.name &quot;your-username&quot;</span><br></code></pre></td></tr></table></figure><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lua">git <span class="hljs-built_in">config</span> <span class="hljs-comment">--global user.email &quot;your-email&quot;</span><br></code></pre></td></tr></table></figure><h3 id="3-配置-config-yanl"><a href="#3-配置-config-yanl" class="headerlink" title="3.配置_config.yanl"></a>3.配置_config.yanl</h3><p>找到此文件以下部分代码，注意，yaml的语法要求每个同一层次的：后面必须有一个空格</p><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-meta"># Deployment</span><br><span class="hljs-meta">## Docs: https:<span class="hljs-comment">//hexo.io/docs/deployment.html</span></span><br><span class="hljs-symbol">deploy:</span><br><span class="hljs-symbol">  type:</span> git<br><span class="hljs-symbol">  repo:</span> git@github.com:your-username/your-username.github.io.git<br><span class="hljs-symbol">  branch:</span> master<br></code></pre></td></tr></table></figure><h2 id="2-找不到仓库或者上传后页面长时间404"><a href="#2-找不到仓库或者上传后页面长时间404" class="headerlink" title="2.找不到仓库或者上传后页面长时间404"></a>2.找不到仓库或者上传后页面长时间404</h2><p>请检查你的仓库名称设置，比如有一个人的GitHub账户名称为AbcDe，在创建仓库时必须命名为abcde.github.io，<strong>用户名要相同而且大写英文字母要变成小写</strong></p><h2 id="3-经过重启等操作后，原先可以部署的Hexo-d指令突然无法使用"><a href="#3-经过重启等操作后，原先可以部署的Hexo-d指令突然无法使用" class="headerlink" title="3.经过重启等操作后，原先可以部署的Hexo d指令突然无法使用"></a>3.经过重启等操作后，原先可以部署的Hexo d指令突然无法使用</h2><p>这种情况有三种解决方法</p><h3 id="3-1将SSH连接改成HTTPS"><a href="#3-1将SSH连接改成HTTPS" class="headerlink" title="3.1将SSH连接改成HTTPS"></a>3.1将SSH连接改成HTTPS</h3><p>在_config.yaml文件中，找到repo这一行：</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">repo: git@github<span class="hljs-selector-class">.com</span>:your-username/your-username<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.io</span>.git<br></code></pre></td></tr></table></figure><p>换成<a href="https://github.com//your-username/your-username.github.io.git">https://github.com//your-username/your-username.github.io.git</a><br><br>然后博客文件夹下在终端中输入:</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">rm -rf <span class="hljs-string">.deploy_git</span><br></code></pre></td></tr></table></figure><p>然后重新执行:</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">Hexo clean</span><br></code></pre></td></tr></table></figure><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">Hexo g</span><br></code></pre></td></tr></table></figure><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">Hexo d</span><br></code></pre></td></tr></table></figure><h3 id="3-2使用git窗口进行部署"><a href="#3-2使用git窗口进行部署" class="headerlink" title="3.2使用git窗口进行部署"></a>3.2使用git窗口进行部署</h3><p>在Finder访达中搜索终端，然后找到Git Bash，然后输入Hexo d。</p><h3 id="3-3不使用sudo指令的情况下进行发布"><a href="#3-3不使用sudo指令的情况下进行发布" class="headerlink" title="3.3不使用sudo指令的情况下进行发布"></a>3.3不使用sudo指令的情况下进行发布</h3><p>首先在Terminal中博客文件夹下以root模式输入：</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">rm -rf <span class="hljs-string">.deploy_git</span><br></code></pre></td></tr></table></figure><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">Hexo clean</span><br></code></pre></td></tr></table></figure><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">Hexo g</span><br></code></pre></td></tr></table></figure><p>然后输入exit退出root模式，执行Hexo d指令。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Blog</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Blog搭建</tag>
+      
+      <tag>Hexo blog</tag>
+      
+      <tag>避坑</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2021/10/15/hello-world/"/>
+    <url>/2021/10/15/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Hello World</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hello World</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>服务器搭建指南</title>
+    <link href="/2021/10/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/"/>
+    <url>/2021/10/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
+    
+    <content type="html"><![CDATA[<h1 id="服务器搭建指南"><a href="#服务器搭建指南" class="headerlink" title="服务器搭建指南"></a>服务器搭建指南</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>早期的互联网技术不发达，前端需要做的只有把数据展示出来，而经过技术的发展，前端界面越来越复杂，提供的功能越来越多，前端技术栈也越来越丰富，解决问题也越来越复杂，所以前端技术无法再像之前一样零散的分布在系统框架中，前后端分离是一种历史必然。<br><br></p><p>所以，在前端技术中Vue是一种流行的方案，同时技术门槛没有React这么高，所以前端技术使用Vue技术，后端推荐使用SpringBoot技术。<br><br></p><p>除了Java，Golang依靠科技巨头Google也在逐渐流行，所以后端使用Go也是很好的选择。</p><h2 id="软件方面"><a href="#软件方面" class="headerlink" title="软件方面"></a>软件方面</h2><h3 id="服务器操作系统"><a href="#服务器操作系统" class="headerlink" title="服务器操作系统"></a>服务器操作系统</h3><p>目前市面上流行的服务器操作系统主要为Linux、Windows、Unix（IBM大型机），Linux和Windows有大量的开源第三方工具和软件以及相应的社区支持，Unix服务器也有大量IBM提供的工具。<br>为了降低成本和提高泛用性以及降低维护、开发门槛的目的，选用Linux内核是较好的方案。其中Linux发行版中，Debian更为稳定。</p><h3 id="1-Java服务器方案"><a href="#1-Java服务器方案" class="headerlink" title="1.Java服务器方案"></a>1.Java服务器方案</h3><h4 id="1-1基本需求"><a href="#1-1基本需求" class="headerlink" title="1.1基本需求"></a>1.1基本需求</h4><p>一个网页，至少需求Web服务器（软件）、HTTP服务器（软件）、应用服务器（软件），由于使用Java语言进行开发，服务器（物理意义）自然需要安装JDK。</p><h4 id="1-2Web服务器（软件）、HTTP服务器（软件）和应用服务器（软件）"><a href="#1-2Web服务器（软件）、HTTP服务器（软件）和应用服务器（软件）" class="headerlink" title="1.2Web服务器（软件）、HTTP服务器（软件）和应用服务器（软件）"></a>1.2Web服务器（软件）、HTTP服务器（软件）和应用服务器（软件）</h4><h5 id="1-2-1Web服务器"><a href="#1-2-1Web服务器" class="headerlink" title="1.2.1Web服务器"></a>1.2.1Web服务器</h5><p>在讨论Web服务器之前，要区分两个概念：静态资源和动态资源。<br><br></p><p>静态资源，即容纳静态资源的服务器，静态资源，顾名思义，即所见即所得，无论是哪一方得到的内容都是相同的。比如个人博客，绝大多数不涉及到用户登陆所以使用Hexo框架可以迅速的搭建起来。<br><br></p><p>动态资源，返回的都是的动态资源，典型的应用场景如登陆界面，如使用WordPress、Halo搭建的个人博客，这些资源需要单独的应用服务器承载，部署起来也更加复杂。<br><br></p><p>Web服务器用来提供Web化服务，属于<u><strong>静态服务器</strong></u>如网站页面服务、邮件服务和下载服务等，这些是典型的需要放在Web服务器上的静态资源，都属于Web化服务，</p><h5 id="1-2-2HTTP服务器"><a href="#1-2-2HTTP服务器" class="headerlink" title="1.2.2HTTP服务器"></a>1.2.2HTTP服务器</h5><p>当今的Web服务器应用层和通讯层为HTTP协议，所以基本上HTTP服务器就是和Web服务器对等。HTTP服务器可以把服务器上的资源通过HTTP协议传输给用户，注重于静态资源的传输支持。<br></p><h5 id="1-2-3应用服务器"><a href="#1-2-3应用服务器" class="headerlink" title="1.2.3应用服务器"></a>1.2.3应用服务器</h5><p>应用服务器即一个特定应用的承载容器，需要运行时环境的支持（如<strong>1.1基本需求</strong>中提到的JDK）。应用服务器属于<u><strong>动态服务器</strong></u>，支持动态响应，可以为不同的用户请求动态的生成资源并且返回，这样不同的用户得到的内容也不一样。在负载不大时，应用服务器也可以当作HTTP服务器应用（当然这么做的比较少）。</p><h4 id="1-3应用选择"><a href="#1-3应用选择" class="headerlink" title="1.3应用选择"></a>1.3应用选择</h4><p>如果需求较为简单，如自己写blog等，可以使用静态服务器，而如果想有后台管理等更复杂的功能，则需要使用动态服务器。<br><br></p><p><em><strong>1.HTTP服务器Nginx：</strong></em>Nginx是一个典型的HTTP服务器，她可以将服务端资源通过HTTP协议传输给用户端，同时也可以用来反向代理、负载均衡等用途，在实际应用中，通常用来把用户请求转发给后方的Tomcat服务器，由于Nginx的稳定性特别强，所以一般把她放在最前面去直面用户。<br><br></p><p><strong>2.应用服务器Tomcat：</strong>Apache的老牌Java服务器，集成Web服务器和应用服务器一体，必要时也可以当作HTTP服务器使用。</p><h3 id="2-Go服务器"><a href="#2-Go服务器" class="headerlink" title="2.Go服务器"></a>2.Go服务器</h3><p>由于Go编译后为二进制文件，所以编写完成后直接放到服务器上，或者使用Docker把项目部署到Docker，只需要把Go Web项目前放置Nginx即可。</p><h3 id="3-其他杂项"><a href="#3-其他杂项" class="headerlink" title="3.其他杂项"></a>3.其他杂项</h3><p>根据方案选择，安装相应的软件如mysql、JDK、Go运行环境、Docker等。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>服务器</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>服务器</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
