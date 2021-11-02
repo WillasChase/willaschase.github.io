@@ -24,7 +24,7 @@
 <meta property="og:description" content="Hexo Bolg避坑指南这一次搭建Hexo服务器，把能踩的坑全都踩了，故写一篇避坑指南。 1.在SSH模式运行Hexo d指令之后Permission Denied1.1生成SSH keys出现此情况是因为没有设置GitHub的密钥，首先，在terminal中输入以下代码： 1ssh-keygen -t rsa -C &quot;your-email&quot;  把上面指令的your emai">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-15T09:38:26.000Z">
-<meta property="article:modified_time" content="2021-11-01T08:33:04.103Z">
+<meta property="article:modified_time" content="2021-11-02T14:28:59.371Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Blog搭建">
 <meta property="article:tag" content="Hexo blog">
@@ -291,7 +291,7 @@
 <h2 id="加入图片的正确姿势"><a href="#加入图片的正确姿势" class="headerlink" title="加入图片的正确姿势"></a>加入图片的正确姿势</h2><p>在在管理员模式下（进入Terminal sudo su）使用以下指令时，会生成一个与post-name同名的文件夹，里面可以放入图片资源</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">hexo n post-<span class="hljs-built_in">name</span><br></code></pre></td></tr></table></figure>
 <p>然后，去config.yanl文件中中，把post_asset_folder选项改成true，然后，使用一下指令来插入，注意这部分代码仅需要更改your-picture-name.xxx为你想插入的图片的文件名和其格式</p>
-<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs django"><span class="hljs-template-tag">&#123;% <span class="hljs-name">asset_img</span> your-picture-name.xxx  %&#125;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs django"><span class="hljs-template-tag">&#123;% <span class="hljs-name">asset_img</span> your-picture-name.xxx %&#125;</span><br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
