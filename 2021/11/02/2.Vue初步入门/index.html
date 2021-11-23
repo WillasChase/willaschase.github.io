@@ -16,20 +16,22 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <meta name="description" content="服务器搭建指南前言早期的互联网技术不发达，前端需要做的只有把数据展示出来，而经过技术的发展，前端界面越来越复杂，提供的功能越来越多，前端技术栈也越来越丰富，解决问题也越来越复杂，所以前端技术无法再像之前一样零散的分布在系统框架中，前后端分离是一种历史必然。 所以，在前端技术中Vue是一种流行的方案，同时技术门槛没有React这么高，所以前端技术使用Vue技术，后端推荐使用SpringBoot技术。">
+  <meta name="description" content="Vue初步入门首先我们用 VS Code 输如 ! 在上文新建的 HTML 文件中生成一个模版，然后新建一个模版。制作好模版后，引入刚才放在文件夹的 Vue 文件，注意，Vue 和 Vue.min 都是 Vue 框架，只不过 Vue.min 删除了如错误提示等代码，更为简洁更适合生产环境而非开发环境。首先需要引入Vue框架： 1&lt;script type&#x3D;&quot;text&#x2F;javascri">
 <meta property="og:type" content="article">
-<meta property="og:title" content="服务器搭建指南">
-<meta property="og:url" content="http://example.com/2021/10/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:title" content="2.Vue初步入门">
+<meta property="og:url" content="http://example.com/2021/11/02/2.Vue%E5%88%9D%E6%AD%A5%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="Willas&#39;s Space">
-<meta property="og:description" content="服务器搭建指南前言早期的互联网技术不发达，前端需要做的只有把数据展示出来，而经过技术的发展，前端界面越来越复杂，提供的功能越来越多，前端技术栈也越来越丰富，解决问题也越来越复杂，所以前端技术无法再像之前一样零散的分布在系统框架中，前后端分离是一种历史必然。 所以，在前端技术中Vue是一种流行的方案，同时技术门槛没有React这么高，所以前端技术使用Vue技术，后端推荐使用SpringBoot技术。">
+<meta property="og:description" content="Vue初步入门首先我们用 VS Code 输如 ! 在上文新建的 HTML 文件中生成一个模版，然后新建一个模版。制作好模版后，引入刚才放在文件夹的 Vue 文件，注意，Vue 和 Vue.min 都是 Vue 框架，只不过 Vue.min 删除了如错误提示等代码，更为简洁更适合生产环境而非开发环境。首先需要引入Vue框架： 1&lt;script type&#x3D;&quot;text&#x2F;javascri">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-10-13T13:46:31.000Z">
-<meta property="article:modified_time" content="2021-10-18T08:26:33.761Z">
+<meta property="article:published_time" content="2021-11-02T14:28:02.000Z">
+<meta property="article:modified_time" content="2021-11-02T14:28:02.000Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="服务器">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="学习">
 <meta name="twitter:card" content="summary_large_image">
   
-  <title>服务器搭建指南 - Willas&#39;s Space</title>
+  <title>2.Vue初步入门 - Willas&#39;s Space</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -175,7 +177,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="服务器搭建指南">
+            <span class="h2" id="subtitle" title="2.Vue初步入门">
               
             </span>
 
@@ -185,8 +187,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-10-13 21:46" pubdate>
-        2021年10月13日 晚上
+      <time datetime="2021-11-02 22:28" pubdate>
+        2021年11月2日 晚上
       </time>
     </span>
   
@@ -196,7 +198,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      815 字
     </span>
   
 
@@ -205,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5 分钟
+      3 分钟
     </span>
   
 
@@ -234,25 +236,17 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">服务器搭建指南</h1>
+            <h1 style="display: none">2.Vue初步入门</h1>
             
             <div class="markdown-body">
-              <h1 id="服务器搭建指南"><a href="#服务器搭建指南" class="headerlink" title="服务器搭建指南"></a>服务器搭建指南</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>早期的互联网技术不发达，前端需要做的只有把数据展示出来，而经过技术的发展，前端界面越来越复杂，提供的功能越来越多，前端技术栈也越来越丰富，解决问题也越来越复杂，所以前端技术无法再像之前一样零散的分布在系统框架中，前后端分离是一种历史必然。<br><br></p>
-<p>所以，在前端技术中Vue是一种流行的方案，同时技术门槛没有React这么高，所以前端技术使用Vue技术，后端推荐使用SpringBoot技术。<br><br></p>
-<p>除了Java，Golang依靠科技巨头Google也在逐渐流行，所以后端使用Go也是很好的选择。</p>
-<h2 id="软件方面"><a href="#软件方面" class="headerlink" title="软件方面"></a>软件方面</h2><h3 id="服务器操作系统"><a href="#服务器操作系统" class="headerlink" title="服务器操作系统"></a>服务器操作系统</h3><p>目前市面上流行的服务器操作系统主要为Linux、Windows、Unix（IBM大型机），Linux和Windows有大量的开源第三方工具和软件以及相应的社区支持，Unix服务器也有大量IBM提供的工具。<br>为了降低成本和提高泛用性以及降低维护、开发门槛的目的，选用Linux内核是较好的方案。其中Linux发行版中，Debian更为稳定。</p>
-<h3 id="1-Java服务器方案"><a href="#1-Java服务器方案" class="headerlink" title="1.Java服务器方案"></a>1.Java服务器方案</h3><h4 id="1-1基本需求"><a href="#1-1基本需求" class="headerlink" title="1.1基本需求"></a>1.1基本需求</h4><p>一个网页，至少需求Web服务器（软件）、HTTP服务器（软件）、应用服务器（软件），由于使用Java语言进行开发，服务器（物理意义）自然需要安装JDK。</p>
-<h4 id="1-2Web服务器（软件）、HTTP服务器（软件）和应用服务器（软件）"><a href="#1-2Web服务器（软件）、HTTP服务器（软件）和应用服务器（软件）" class="headerlink" title="1.2Web服务器（软件）、HTTP服务器（软件）和应用服务器（软件）"></a>1.2Web服务器（软件）、HTTP服务器（软件）和应用服务器（软件）</h4><h5 id="1-2-1Web服务器"><a href="#1-2-1Web服务器" class="headerlink" title="1.2.1Web服务器"></a>1.2.1Web服务器</h5><p>在讨论Web服务器之前，要区分两个概念：静态资源和动态资源。<br><br></p>
-<p>静态资源，即容纳静态资源的服务器，静态资源，顾名思义，即所见即所得，无论是哪一方得到的内容都是相同的。比如个人博客，绝大多数不涉及到用户登陆所以使用Hexo框架可以迅速的搭建起来。<br><br></p>
-<p>动态资源，返回的都是的动态资源，典型的应用场景如登陆界面，如使用WordPress、Halo搭建的个人博客，这些资源需要单独的应用服务器承载，部署起来也更加复杂。<br><br></p>
-<p>Web服务器用来提供Web化服务，属于<u><strong>静态服务器</strong></u>如网站页面服务、邮件服务和下载服务等，这些是典型的需要放在Web服务器上的静态资源，都属于Web化服务，</p>
-<h5 id="1-2-2HTTP服务器"><a href="#1-2-2HTTP服务器" class="headerlink" title="1.2.2HTTP服务器"></a>1.2.2HTTP服务器</h5><p>当今的Web服务器应用层和通讯层为HTTP协议，所以基本上HTTP服务器就是和Web服务器对等。HTTP服务器可以把服务器上的资源通过HTTP协议传输给用户，注重于静态资源的传输支持。<br></p>
-<h5 id="1-2-3应用服务器"><a href="#1-2-3应用服务器" class="headerlink" title="1.2.3应用服务器"></a>1.2.3应用服务器</h5><p>应用服务器即一个特定应用的承载容器，需要运行时环境的支持（如<strong>1.1基本需求</strong>中提到的JDK）。应用服务器属于<u><strong>动态服务器</strong></u>，支持动态响应，可以为不同的用户请求动态的生成资源并且返回，这样不同的用户得到的内容也不一样。在负载不大时，应用服务器也可以当作HTTP服务器应用（当然这么做的比较少）。</p>
-<h4 id="1-3应用选择"><a href="#1-3应用选择" class="headerlink" title="1.3应用选择"></a>1.3应用选择</h4><p>如果需求较为简单，如自己写blog等，可以使用静态服务器，而如果想有后台管理等更复杂的功能，则需要使用动态服务器。<br><br></p>
-<p><em><strong>1.HTTP服务器Nginx：</strong></em>Nginx是一个典型的HTTP服务器，她可以将服务端资源通过HTTP协议传输给用户端，同时也可以用来反向代理、负载均衡等用途，在实际应用中，通常用来把用户请求转发给后方的Tomcat服务器，由于Nginx的稳定性特别强，所以一般把她放在最前面去直面用户。<br><br></p>
-<p><strong>2.应用服务器Tomcat：</strong>Apache的老牌Java服务器，集成Web服务器和应用服务器一体，必要时也可以当作HTTP服务器使用。</p>
-<h3 id="2-Go服务器"><a href="#2-Go服务器" class="headerlink" title="2.Go服务器"></a>2.Go服务器</h3><p>由于Go编译后为二进制文件，所以编写完成后直接放到服务器上，或者使用Docker把项目部署到Docker，只需要把Go Web项目前放置Nginx即可。</p>
-<h3 id="3-其他杂项"><a href="#3-其他杂项" class="headerlink" title="3.其他杂项"></a>3.其他杂项</h3><p>根据方案选择，安装相应的软件如mysql、JDK、Go运行环境、Docker等。</p>
+              <h1 id="Vue初步入门"><a href="#Vue初步入门" class="headerlink" title="Vue初步入门"></a>Vue初步入门</h1><p>首先我们用 VS Code 输如 ! 在上文新建的 HTML 文件中生成一个模版，然后新建一个模版。制作好模版后，引入刚才放在文件夹的 Vue 文件，注意，Vue 和 Vue.min 都是 Vue 框架，只不过 Vue.min 删除了如错误提示等代码，更为简洁更适合生产环境而非开发环境。<br><br>首先需要引入Vue框架：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;../VueJS/vue.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>👆 以上的代码代表加入 Vue。<br><br>在使用 Vue 前，首先我们要创建一个容器，然后在容器中添加 Vue 模版：</p>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span></span><br><span class="xml">     <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello </span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">name1</span>&#125;&#125;</span><span class="xml">!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="xml">     Hello </span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">name2</span>&#125;&#125;</span><span class="xml">!</span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<p>创建模版后在body中创建 Vue 实例，传入root配置对象，一个 Vue 实例对应一个容器：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript"><span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="javascript">    <span class="hljs-attr">el</span>:<span class="hljs-string">&#x27;#root&#x27;</span>,  <span class="hljs-comment">//指定当前Vue容器,值通常为CSS选择器字符串，这里使用了id选择器的写法，也可以用class选择器</span></span><br><span class="javascript">    <span class="hljs-attr">data</span>:&#123;  <span class="hljs-comment">//data中用于存储数据，数据供el指定的容器使用</span></span><br><span class="javascript">    <span class="hljs-attr">name1</span>:<span class="hljs-string">&#x27;World&#x27;</span>,</span><br><span class="javascript">    <span class="hljs-attr">name2</span>:<span class="hljs-string">&#x27;Vue&#x27;</span>&#125;</span><br><span class="javascript">  &#125;);</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>注意，Vue容器中写的“”中“XXX”需要写成js表达式，且XXX可以自动读取到data中所有属性，如果data中数据改变，模版中用到此数据的地方也会发生改变。<br><br>一个Vue实例只能对应一个容器，在真实的开发中，只有一个Vue实例，并且会配合组件一起使用。</p>
 
             </div>
             <hr>
@@ -262,7 +256,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/Vue/">Vue</a>
                     
                   </div>
                 
@@ -270,7 +266,11 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+                      <a class="hover-with-bg" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Vue/">Vue</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
                     
                   </div>
                 
@@ -287,15 +287,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/10/15/hello-world/">
+                      <a href="/2021/11/02/Hexo%E5%8D%9A%E5%AE%A2%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Hello World</span>
+                        <span class="hidden-mobile">Hexo Bolg避坑指南</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2021/11/02/5.el%E5%92%8Cdata%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95/">
+                        <span class="hidden-mobile">5.el和data的两种写法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
