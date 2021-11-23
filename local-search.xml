@@ -4,7 +4,36 @@
   
   
   <entry>
-    <title>6.数据代理</title>
+    <title>安装使用Oh My Zsh</title>
+    <link href="/2021/11/23/Oh%20My%20Zsh/"/>
+    <url>/2021/11/23/Oh%20My%20Zsh/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-安装Oh-My-Zsh"><a href="#1-安装Oh-My-Zsh" class="headerlink" title="1.安装Oh My Zsh"></a>1.安装Oh My Zsh</h1><p>首先在Terminal中输入以安装Oh My Zsh</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sh -c <span class="hljs-string">&quot;<span class="hljs-subst">$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span><br></code></pre></td></tr></table></figure><h1 id="2-插件安装"><a href="#2-插件安装" class="headerlink" title="2.插件安装"></a>2.插件安装</h1><h2 id="2-1-zsh-autosuggestions"><a href="#2-1-zsh-autosuggestions" class="headerlink" title="2.1.zsh-autosuggestions"></a>2.1.zsh-autosuggestions</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">git clone git:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/zsh-users/</span>zsh-autosuggestions <span class="hljs-variable">$ZSH_CUSTOM</span><span class="hljs-regexp">/plugins/</span>zsh-autosuggestions<br></code></pre></td></tr></table></figure><p>然后需要在~/.zshrc进行配置，首先在Terminal输入下面这条命令</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">vim ~<span class="hljs-string">/.zshrc</span><br></code></pre></td></tr></table></figure><p>然后找到里面的plugins，进行修改</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">plugins</span>=(其他的插件 zsh-autosuggestions)<br></code></pre></td></tr></table></figure><h2 id="2-2-zsh-syntax-highlighting"><a href="#2-2-zsh-syntax-highlighting" class="headerlink" title="2.2.zsh-syntax-highlighting"></a>2.2.zsh-syntax-highlighting</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/zsh-users/</span>zsh-syntax-highlighting.git <span class="hljs-variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span><span class="hljs-regexp">/plugins/</span>zsh-syntax-highlighting<br></code></pre></td></tr></table></figure><p>在~/.zshrc中配置</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">plugins</span>=(其他的插件 zsh-syntax-highlighting)<br></code></pre></td></tr></table></figure><h1 id="3-卸载-Oh-My-Zsh"><a href="#3-卸载-Oh-My-Zsh" class="headerlink" title="3.卸载 Oh My Zsh"></a>3.卸载 Oh My Zsh</h1><p>在Terminal输入</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">uninstall_oh_my_zsh<br>Are you sure you want <span class="hljs-keyword">to</span> <span class="hljs-builtin-name">remove</span> Oh My Zsh? [y/N]  Y<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Mac配置</category>
+      
+      <category>Terminal</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Mac配置</tag>
+      
+      <tag>Terminal</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>7.数据代理</title>
     <link href="/2021/11/20/7.%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%90%86/"/>
     <url>/2021/11/20/7.%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%90%86/</url>
     
